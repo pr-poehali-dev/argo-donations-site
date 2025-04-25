@@ -6,6 +6,17 @@ import Footer from "@/components/Footer";
 const Index = () => {
   const donatPackages = [
     {
+      title: "STARTER",
+      price: 99,
+      features: [
+        "Базовый префикс в чате",
+        "Доступ к /kit starter",
+        "Возможность установки 2 точек дома"
+      ],
+      icon: "🌱",
+      popular: false
+    },
+    {
       title: "VIP",
       price: 149,
       features: [
@@ -36,6 +47,50 @@ const Index = () => {
         "Доступ к приватным серверам"
       ],
       icon: "🌟",
+      popular: false
+    },
+    {
+      title: "ELITE",
+      price: 899,
+      features: [
+        "Все преимущества DELUXE",
+        "Полный доступ ко всем командам",
+        "Эксклюзивные эффекты частиц"
+      ],
+      icon: "🏆",
+      popular: false
+    },
+    {
+      title: "LEGEND",
+      price: 1499,
+      features: [
+        "Все преимущества ELITE",
+        "Персональный питомец с кастомизацией",
+        "Возможность смены погоды и времени"
+      ],
+      icon: "⚡",
+      popular: false
+    },
+    {
+      title: "IMMORTAL",
+      price: 2499,
+      features: [
+        "Все преимущества LEGEND",
+        "Бессмертие в PvE зонах",
+        "Личный остров размером 500x500"
+      ],
+      icon: "🔮",
+      popular: false
+    },
+    {
+      title: "GOD",
+      price: 4999,
+      features: [
+        "Все преимущества IMMORTAL",
+        "Консультации с администрацией",
+        "Персональные запросы на обновления"
+      ],
+      icon: "🌌",
       popular: false
     }
   ];
@@ -91,7 +146,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {donatPackages.map((pkg, index) => (
               <DonatCard
                 key={index}
