@@ -1,25 +1,29 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      
+      <div className="flex-1 flex flex-col items-center justify-center p-8">
+        <div className="text-center">
+          <div className="text-9xl font-bold mb-4 text-minecraft-primary">404</div>
+          <h1 className="text-4xl font-bold mb-4">Страница не найдена</h1>
+          <p className="text-xl text-muted-foreground mb-8 max-w-md mx-auto">
+            Похоже, этот блок был сломан или никогда не существовал. Возможно, крипер взорвал эту часть сервера.
+          </p>
+          <Link to="/">
+            <Button className="minecraft-btn">
+              Вернуться на главную
+            </Button>
+          </Link>
+        </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };

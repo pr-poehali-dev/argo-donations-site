@@ -6,7 +6,7 @@ export default {
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}"
 	],
 	prefix: "",
 	theme: {
@@ -61,6 +61,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				minecraft: {
+					primary: '#8B5CF6',   // основной фиолетовый
+					secondary: '#6E59A5', // тёмно-фиолетовый
+					accent: '#33C3F0',    // яркий голубой
+					green: '#4CAF50',     // зелёный для комичных элементов
+					dirt: '#9F7B5F',      // коричневый для акцентов
+					stone: '#777777',     // серый для второстепенных элементов
 				}
 			},
 			borderRadius: {
@@ -84,11 +92,27 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'spin-slow': 'spin-slow 8s linear infinite',
+			},
+			fontFamily: {
+				'minecraft': ['MinecraftTen', 'sans-serif'],
+			},
+			backgroundImage: {
+				'minecraft-pattern': "url('https://images.unsplash.com/photo-1566060475410-1245a9306339?q=80&w=1000&auto=format&fit=crop')",
 			}
 		}
 	},
