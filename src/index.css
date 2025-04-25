@@ -1,118 +1,81 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: "MinecraftTen";
-  src: url("https://fonts.cdnfonts.com/css/minecraft-ten") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
+ 
 @layer base {
   :root {
-    --background: 260 20% 98%;
-    --foreground: 260 20% 10%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 260 20% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 260 20% 10%;
-
-    --primary: 260 84% 63%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 260 30% 50%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 260 20% 92%;
-    --muted-foreground: 260 20% 40%;
-
-    --accent: 195 94% 57%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 260 20% 80%;
-    --input: 260 20% 80%;
-    --ring: 260 84% 63%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 260 20% 5%;
-    --foreground: 260 20% 98%;
-
-    --card: 260 20% 8%;
-    --card-foreground: 260 20% 98%;
-
-    --popover: 260 20% 5%;
-    --popover-foreground: 260 20% 98%;
-
-    --primary: 260 84% 63%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 260 30% 50%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 260 20% 15%;
-    --muted-foreground: 260 20% 70%;
-
-    --accent: 195 94% 57%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 260 20% 30%;
-    --input: 260 20% 30%;
-    --ring: 260 84% 63%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
     
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 263 70% 60%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 262 45% 50%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 191 97% 77%;
+    --accent-foreground: 0 0% 9%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    
+    --radius: 0.75rem;
   }
 }
-
+ 
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+  }
+  
+  @font-face {
+    font-family: 'MinecraftTen';
+    src: url('https://fonts.cdnfonts.com/s/35335/MinecraftTen.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
   }
 }
 
 @layer components {
-  .pixel-border {
-    box-shadow: 
-      0 2px 0 0 rgba(0, 0, 0, 0.3),
-      inset 0 2px 0 0 rgba(255, 255, 255, 0.3);
+  .minecraft-btn {
+    @apply relative bg-minecraft-primary text-white font-medium py-2.5 px-5 rounded-sm hover:bg-minecraft-secondary transition-colors duration-200;
   }
   
-  .minecraft-btn {
-    @apply bg-minecraft-primary text-white font-bold py-2 px-4 pixel-border hover:bg-minecraft-secondary transition-colors duration-200;
+  .minecraft-btn::before {
+    content: '';
+    @apply absolute -right-1 -bottom-1 w-full h-full bg-black/20 rounded-sm -z-10;
   }
-
+  
   .donate-card {
-    @apply bg-card border-2 border-minecraft-primary rounded-md transition-all duration-300 hover:shadow-xl hover:scale-105 pixel-border overflow-hidden;
+    @apply relative bg-card border border-border rounded-lg overflow-hidden transition-transform duration-300 hover:transform hover:-translate-y-2;
+  }
+  
+  .donate-card-popular {
+    @apply before:content-['⭐'] before:absolute before:top-4 before:right-4 before:text-xl;
+  }
+  
+  .feature-card {
+    @apply bg-card/50 backdrop-blur-sm border border-border rounded-lg p-6 transition-all duration-300 hover:border-minecraft-primary;
+  }
+  
+  .feature-icon {
+    @apply w-12 h-12 rounded-full flex items-center justify-center bg-minecraft-primary/20 text-2xl;
   }
 }
